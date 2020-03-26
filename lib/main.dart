@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:todolist/screens/todolist.dart';
 import 'package:todolist/util/dbhelper.dart';
 import 'package:todolist/model/todo.dart';
 
@@ -8,14 +11,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    List<Todo> todos=List<Todo>();
+    /*List<Todo> todos=List<Todo>();
     DBHelper Helper=new DBHelper();
-    Helper.initdatabase().then(
-        (result)=>Helper.getTodos().then((result)=>todos=result)
-    );
+    Helper.initdatabase();
     DateTime dt=DateTime.now();
-    Todo todo=new Todo("Learn Flutter",dt.toString(),1,"Make sure you practice not just read and go!");
+    Todo todo=new Todo("Learn Flutter1",dt.toString(),1,"Make sure you practice not just read and go!1");
     Future<int> a=Helper.inserttodp(todo);
+    print(a.toString());
+    final str=Helper.getTodos();
+    str.then((result){
+      for(int i=0;i<result.length;i++){
+        Map m=todo.tomap();
+        debugPrint(result.length.toString());
+      }
+    });*/
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -81,7 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
+      body: TodoList(),
+      /*body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -115,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),*/ // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

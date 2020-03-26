@@ -3,15 +3,15 @@ class Todo {
   String _title;
   String _description;
   String _date;
-  int _priority;
+  String _priority;
 
   Todo(this._title, this._date, this._priority,[this._description]);//for creating new to_dos
 
   Todo.WithId(this._id,this._title, this._date, this._priority,[this._description]);
 
-  int get priority => _priority;
+  String get priority => _priority;
 
-  set priority(int value) {
+  set priority(String value) {
     _priority = value;
   }
 
@@ -42,8 +42,8 @@ class Todo {
   Map<String, dynamic> tomap(){
     var map=new Map<String,dynamic>();
     map['title']=_title;
-    map['desc']=_description;
-    map['prior']=_priority;
+    map['description']=_description;
+    map['priority']=_priority;
     map['date']=_date;
 
     if(_id!=null){
@@ -58,8 +58,8 @@ class Todo {
   Todo.fromObject(dynamic o){
     this._id=o['id'];
     this._title=o['title'];
-    this._description=o['desc'];
-    this._priority=o['prior'];
+    this._description=o['description'];
+    this._priority=o['priority'];
     this._date=o['date'];
 
   }
