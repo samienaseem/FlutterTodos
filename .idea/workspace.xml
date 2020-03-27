@@ -11,11 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f3ef9f3-668b-4b88-91bc-1bfaa81f2a34" name="Default Changelist" comment="new screen">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/TodoView.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/todoDetails.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flutter_app03/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../flutter_app03/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/todo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/todo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/todolist.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/todolist.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/util/dbhelper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/dbhelper.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +34,7 @@
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flutter_app03" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
