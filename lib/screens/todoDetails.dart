@@ -62,7 +62,7 @@ class TodoDetailsStates extends State{
       ),
       body: ListView(children: <Widget>[Padding(
           padding: EdgeInsets.only(
-            top: 30.0,
+            top: 18.0,
             left: 10.0,
             right: 10.0,
           ),
@@ -74,10 +74,12 @@ class TodoDetailsStates extends State{
                 bottom: 10.0
             ),
               child:TextField(
+                autofocus: true,
 
             controller: titleController,
             style: textStyle,
                 onChanged: (value)=>this.UpdateTitle(value),
+            maxLines: 1,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5.0),
@@ -95,6 +97,7 @@ class TodoDetailsStates extends State{
 
                 onChanged: (value)=>this.updatedesc(value),
             controller: DescController,
+            maxLines: null,
             style: textStyle,
             decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -107,10 +110,10 @@ class TodoDetailsStates extends State{
           ),
            ListTile(title:DropdownButton<String>(
 
-             icon:Icon(Icons.list),
+             icon:Icon(Icons.arrow_drop_down),
              underline: Container(
                height: 1,
-               color: Colors.red,
+
              ),
              value: retrievePrior(todo.priority),
             items: _priorities.map<DropdownMenuItem<String>>((String value){
@@ -211,6 +214,10 @@ class TodoDetailsStates extends State{
   String retrievePrior(String priority) {
    if(priority=="3"){
      return "Low";
+   }
+   else{
+     int a= int.parse(priority);
+     return _priorities[a-1];
    }
 
 

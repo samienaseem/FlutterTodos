@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todolist/model/todo.dart';
 import 'package:todolist/screens/TodoView.dart';
@@ -37,8 +38,31 @@ class TodoListState extends State {
   ListView todolistitems(){
     return ListView.builder(
         itemCount: count,
-        itemBuilder: (BuildContext context,int position){
-          return Card(
+        itemBuilder: ( context, position){
+          return Dismissible(
+            key: Key(lists[position].title),
+          background: Container(
+            alignment: AlignmentDirectional.centerEnd,
+            color: Colors.red,
+            child: Padding(
+              padding: EdgeInsets.only(
+                right: 10.0
+              ),
+                child:Icon(
+                Icons.delete,
+              color: Colors.white,
+
+            )),
+
+          ),
+          direction: DismissDirection.endToStart,
+          onDismissed: (direction){
+              /*setState(() {
+                lists.removeAt(position);
+              });*/
+              onDismissed11(this.lists[position],position);
+          },
+          child: Card(
             color: Colors.white,
             elevation: 2.0,
             child: ListTile(
@@ -49,14 +73,14 @@ class TodoListState extends State {
               title: Text(this.lists[position].title),
               subtitle: Text(this.lists[position].date),
               onTap: (){
-                debugPrint(" Tapped on "+this.lists[position].id.toString());
+                debugPrint(" Tapped on "+position.toString());
                 navigatetodetails(lists[position]);
               },
 
             ),
 
 
-          );
+          ));
         }
     );
   }
@@ -112,5 +136,86 @@ class TodoListState extends State {
     }
 
   }
+
+  void onDismissed11(Todo direction,int pos) async {
+    int res;
+    if(lists.contains(direction)){
+        res=await dbHelper.deleteTodo(direction.id);
+        if(res!=0){
+          setState(() {
+            lists.remove(direction);
+            count=lists.length;
+          });
+          Scaffold.of(context).showSnackBar(SnackBar(
+            backgroundColor: getColor(direction.priority) ,
+            content: Text("Todo ${direction.title} has been Deleted "),
+          ));
+        }
+    }
+
+    /*debugPrint("${direction.id}, ${direction.title}");
+    count=lists.length;
+    bool a=lists.remove(direction);
+    count=lists.length;
+    if(a) {
+      debugPrint("${a}");
+      debugPrint("${lists.length}");
+      debugPrint("${count}");
+    }*/
+      /*for(int i=0;i<pos;i++){
+        debugPrint(lists[i].title);
+      }*/
+
+
+    /*setState(() {
+
+    });*/
+    /*int res;
+    if(lists.contains(direction)){
+            //lists.remove(direction);
+     res= await dbHelper.deleteTodo(direction.id);
+     setState(() {
+       lists.removeAt(pos+1);
+     });
+      if(res!=0){
+
+        Scaffold.of(context).showSnackBar(SnackBar(
+          content: Text("Todo is deleted"),
+        ));
+      }
+
+
+    }
+    debugPrint(pos.toString());*/
+
+
+
+
+    /*setState(() {
+      lists.remove(direction);
+    });*/
+
+
+    }
+
+
+
+
+    /*if(result!=0){
+      AlertDialog alertDialog=AlertDialog(
+        title: Text("Delete Todo"),
+        content: Text("Todo has been deleted"),
+      );
+      showDialog(
+          context: context,
+        builder: (_)=>alertDialog
+      );
+    }*/
+    /*if(lists.contains(direction)){
+      setState(() {
+        lists.remove(direction);
+      });
+    }*/
+
 
 }
